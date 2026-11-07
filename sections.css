@@ -1,0 +1,256 @@
+/* sections.css — loads AFTER style.css. Covers everything below the hero.
+   Class names are new and do not overlap with the exported hero classes. */
+:root {
+  /* Reuses from styleguide.css: --primary300-base, --primary-400, --text-colormain-text, --neutralwhite */
+  --navy: #1f364d;
+  --blue-light: #e3eefe;
+  --bg-soft: #f9fafc;
+  --border: #c7d7f5;
+  --container: 1100px;
+  --font-medium: "Gilroy-Medium-Medium", Helvetica, Arial, sans-serif;
+  --font-semibold: "Gilroy-SemiBold-SemiBold", Helvetica, Arial, sans-serif;
+  --font-bold: "Gilroy-Bold-Bold", Helvetica, Arial, sans-serif;
+}
+
+
+.page-sections, .site-footer { font-family: var(--font-medium); color: var(--text-colormain-text); line-height: 1.5; }
+.page-sections *, .page-sections *::before, .page-sections *::after,
+.site-footer *, .site-footer *::before, .site-footer *::after { box-sizing: border-box; }
+.page-sections h2, .page-sections h3, .page-sections p,
+.site-footer h4, .site-footer p { margin: 0; }
+.page-sections ul, .site-footer ul { list-style: none; margin: 0; padding: 0; }
+.page-sections a, .site-footer a { color: inherit; text-decoration: none; }
+.container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+
+
+/* Heading with accent bar */
+.section-title {
+  display: inline-block; font-size: clamp(1.6rem, 3vw, 2.2rem);
+  padding-left: 0.8rem; position: relative;
+}
+.section-title::before {
+  content: ""; position: absolute; left: 0; top: 0.2em; bottom: 0.2em; width: 4px;
+  background: linear-gradient(var(--navy), transparent);
+}
+.section-title em { font-style: normal; color: var(--primary300-base); }
+
+.footer-logo { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; color: var(--navy); }
+.footer-logo svg { width: 28px; height: 28px; color: var(--primary300-base); }
+.footer-logo span { border-left: 2px solid var(--navy); padding-left: 0.6rem; line-height: 1; }
+
+/* ===== Pricing ===== */
+.pricing { padding: 5rem 0; text-align: center; }
+.pricing-intro { max-width: 520px; margin: 1rem auto 0; font-size: 0.9rem; }
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  max-width: 970px;
+  margin: 4rem auto 0;
+  text-align: left;
+}
+.plan { padding: 2.2rem 2.2rem 2.2rem 4.5rem; }
+.plan-basic, .plan-teams {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 40, 120, 0.06);
+  background: #fff;
+}
+.plan-basic { padding-right: 3rem; }
+.plan-teams { padding-left: 3rem; padding-right: 2rem; }
+.plan-pro {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem 4rem 3.5rem;
+  margin-block: -1.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+.plan h3 { font-size: 1.3rem; }
+.plan .price { font-size: 2.2rem; margin-top: 1.5rem; }
+.plan .tagline { font-size: 1.1rem; margin: 0.4rem 0 1.4rem; }
+.plan li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  padding-block: 0.65rem;
+}
+.plan li svg { width: 16px; height: 16px; flex: none; color: var(--primary300-base); }
+.plan-pro li svg { color: #fff; }
+.pricing-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 3.5rem; }
+
+/* ===== Stats + Why choose ===== */
+.stats { background: var(--bg-soft); padding: 3rem 0; }
+.stats .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+.stats h2 { font-size: 2rem; line-height: 1.25; }
+.stats h2 em { font-style: normal; color: var(--primary300-base); }
+.stat-list { display: flex; flex-wrap: wrap; gap: 2.5rem; }
+.stat strong { display: block; font-size: 1.6rem; }
+.stat span { font-size: 0.85rem; display: block; max-width: 8rem; }
+
+.why { padding: 6rem 0; }
+.why .container { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; }
+.why-intro p { margin: 1rem 0 0 0.8rem; font-size: 0.9rem; max-width: 340px; }
+.features { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; }
+.feature .icon {
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--blue-light);
+  color: var(--primary300-base);
+  margin-bottom: 1.8rem;
+}
+.feature .icon svg { width: 22px; height: 22px; }
+.feature h3 { font-size: 1.6rem; }
+.feature p { font-size: 0.9rem; margin-top: 0.8rem; max-width: 310px; }
+
+/* ===== Trim URL form ===== */
+.trim {
+  background:
+    radial-gradient(60% 90% at 15% 20%, #2c5b7a 0%, transparent 65%),
+    radial-gradient(50% 70% at 5% 0%, #1d4f86 0%, transparent 60%),
+    var(--navy);
+  padding: 5rem 1rem;
+}
+.trim-card {
+  width: min(100%, 520px);
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 3rem 3rem 2.5rem;
+  display: grid;
+  gap: 1.4rem;
+}
+.trim-card input, .trim-card select {
+  width: 100%;
+  height: 58px;
+  padding: 0 1.4rem;
+  border: 1px solid var(--primary300-base);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--primary300-base);
+  font-family: var(--font-medium); font-size: 0.9rem;
+}
+.trim-card input::placeholder { color: var(--primary300-base); opacity: 1; }
+.trim-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.trim-card .button { height: 58px; font-size: 1rem; }
+.trim-terms { font-size: 0.85rem; color: #2f7bf0; padding-inline: 0.5rem; }
+.trim-terms a { }
+
+/* ===== FAQs ===== */
+.faqs {
+  padding: 4.5rem 0 6rem;
+  background:
+    radial-gradient(30% 25% at 0% 20%, #e1eefd 0%, transparent 70%),
+    radial-gradient(30% 30% at 100% 100%, #e3f6fc 0%, transparent 70%),
+    #fff;
+}
+.faqs .section-title { display: block; width: fit-content; margin: 0 auto 3rem; }
+.faq-list { max-width: 690px; margin-inline: auto; }
+.faq-list details { border-bottom: 1px solid #dcdcdc; }
+.faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font-size: 1.6rem; line-height: 1; }
+.faq-list details[open] summary::after { content: "\2212"; }
+.faq-list details p { font-size: 0.85rem; padding-bottom: 1.3rem; line-height: 1.9; }
+
+/* ===== CTA banner ===== */
+.cta {
+  background:
+    radial-gradient(40% 80% at 15% 0%, #2c5b7a 0%, transparent 65%),
+    var(--navy);
+  color: #fff;
+  text-align: center;
+  padding: 5.5rem 1rem;
+}
+.cta h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 2rem; }
+
+/* ===== Footer ===== */
+.site-footer {
+  padding: 4rem 0 2rem;
+  background: linear-gradient(135deg, #e8f5fc, #fff 45%);
+}
+.footer-grid { display: grid; grid-template-columns: 1.2fr 3fr; gap: 2rem; }
+.socials { display: flex; gap: 1.5rem; margin-top: 2rem; }
+.socials svg { width: 22px; height: 22px; }
+.footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 2rem; font-size: 0.9rem; }
+.footer-cols h4 { margin: 0 0 1rem; font-size: 0.9rem; color: #0f2234; }
+.footer-cols li { padding-block: 0.25rem; }
+.footer-cols a:hover { color: var(--primary300-base); }
+.footer-bottom {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+}
+.footer-bottom a + a, .footer-bottom span { border-left: 2px solid var(--text-colormain-text); padding-left: 0.8rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+  .why .container { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-cols { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .plans { grid-template-columns: 1fr; gap: 1.2rem; }
+  .plan, .plan-basic, .plan-teams, .plan-pro { padding: 2rem; margin: 0; }
+  .features { grid-template-columns: 1fr; }
+  .pricing-actions { flex-direction: column; align-items: center; }
+  .trim-row { grid-template-columns: 1fr; }
+  .trim-card { padding: 2rem 1.5rem; }
+  .footer-bottom { justify-content: flex-start; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page-sections .button { transition: none; }
+}
+
+/* ===== Buttons: same look as your ".hero-section .button" (that rule is scoped to the hero) ===== */
+.page-sections .button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 142px;
+  height: 44px;
+  padding: 12px 24px;
+  background-color: var(--primary300-base);
+  border: 1px solid var(--primary300-base);
+  border-radius: 100px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.page-sections .button .sample-CTA {
+  font-family: var(--font-semibold);
+  font-weight: 600;
+  color: var(--neutralwhite);
+  font-size: 16px;
+  line-height: 12px;
+  white-space: nowrap;
+}
+.page-sections .button:hover { background-color: var(--primary-400); }
+.page-sections .button:focus-visible { outline: 2px solid var(--primary-400); outline-offset: 3px; }
+.page-sections .button-outline { background-color: var(--neutralwhite); }
+.page-sections .button-outline .sample-CTA { color: var(--primary300-base); }
+.page-sections .button-outline:hover { background-color: var(--blue-light); }
+.trim-card .button { width: 100%; height: 58px; }
+.trim-card .button .sample-CTA { font-size: 18px; }
+
+/* ===== Typography: Gilroy families (weight is built into each family) ===== */
+.page-sections h2, .page-sections h3, .plan .price,
+.stat strong, .section-title { font-family: var(--font-bold); font-weight: 400; }
+.hero-text, .plan h3, .feature h3 { font-family: var(--font-medium); }
+.site-footer h4 { font-family: var(--font-semibold); font-weight: 600; }
+.trim-terms a { font-family: var(--font-semibold); }
